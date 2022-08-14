@@ -1,9 +1,5 @@
-import './css/styles.css';
-// import { fetchCountries } from './fetchCountries';
-
-const DEBOUNCE_DELAY = 300;
-
-fetch('https://restcountries.com/v3.1/all')
+const fetchCountries = (name) => {
+    return fetch('https://restcountries.com/v3.1/all')
         .then(response => {
             return response.json();
         })
@@ -13,5 +9,6 @@ fetch('https://restcountries.com/v3.1/all')
         .catch(error => {
             console.log(error);
         });
+};
 
-
+export { fetchCountries };
