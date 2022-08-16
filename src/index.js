@@ -10,19 +10,20 @@ const countryInfoEl = document.querySelector('.country-info');
 
 searchCountryEl.addEventListener('input', debounce(getInput, DEBOUNCE_DELAY));
 
-function getInput() {
-    if (searchCountryEl.value.trim() === '') {
+function getInput(e) {
+    if (e.target.value.trim() === '') {
         resetPage();
         return;
     }
-    fetchCountries(searchCountryEl.value.trim())
+    fetchCountries(e.target.value.trim())
         .then(data => {
-        if (data.length > 10) {
-            Notiflix.Notify.info("Too many matches found. Please enter a more specific name.");
-            return;
-        }
-        resetPage();
-        insertContent(data);
+        // if (data.length > 10) {
+        //     Notiflix.Notify.info("Too many matches found. Please enter a more specific name.");
+        //     return;
+        // }
+        // resetPage();
+            console.dir(data);
+        // insertContent(data);
         })
         .catch(() => Notiflix.Notify.failure("Oops, there is no country with that name")); 
 }
