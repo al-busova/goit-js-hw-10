@@ -31,19 +31,15 @@ function createInfoCountry(countries) {
   return countries
     .map(
       country => `
-    <div class="country-list_item dec-item">
-    <img src= "${country.flags.svg}" alt='Flag of ${country.name}' width="30">
-    <h2>${country.name}</h2></li>
-    <div class="dec-item"><p ><span class="country-dec">Capital: </span>${
-      country.capital
-    }</p></div>
-    <div class="dec-item"><p ><span class="country-dec">Population: </span>${
-      country.population
-    }</p></div>
-    <div class="dec-item"><p><span class="country-dec">Languages: </span>
-    ${country.languages.map(language => ` ${language.name}`)}</p></div>
-    </div>
-  `
+        <ul >
+        <li class = "country-list_item dec-item">
+        <img src= "${country.flags.svg}" alt = 'Flag of ${country.name}' width = 30>
+        <h2>${country.name}</h2></li>
+        <li class = "dec-item"><p ><span class = "country-dec">Capital: </span>${country.capital}</p></li>
+        <li class = "dec-item"><p ><span class = "country-dec">Population: </span>${country.population}</p></li>
+        <li class = "dec-item"><p ><span class = "country-dec">Languages: </span>
+        ${country.languages.map(language => ` ${language.name}`)}</p></li>
+       </ul>`
     )
     .join('');
 }
